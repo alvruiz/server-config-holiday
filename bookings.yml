@@ -1,1 +1,51 @@
+server:
+  port: 8080
 
+spring:
+  config:
+    activate:
+      on-profile: default
+  application:
+    name: bookings
+  datasource:
+    url: jdbc:mysql://${bookings-db:localhost}:3307/bookings-db
+    username: root
+    password: 12345
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+app:
+  environment:
+    flights-host: ${flights-host:localhost}
+    bookings-host: ${bookings-host:localhost}
+    hotels-host: ${hotels-host:localhost}
+
+
+--- # Testing configuration
+
+server:
+  port: ${random.int(5000,5100)}
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  application:
+    name: bookings
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: root
+    password: 12345
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+app:
+  environment:
+    empleados-host: none
+    nominas-host: none
+    transferencias-host: none

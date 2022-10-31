@@ -48,8 +48,13 @@ spring:
       ddl-auto: update
     show-sql: true
 eureka:
+  instance:
+    hostname: localhost
   client:
+    registerWithEureka: false
+    fetchRegistry: false
     enabled: false
+
 app:
   environment:
     empleados-host: none

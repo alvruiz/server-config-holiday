@@ -8,7 +8,7 @@ spring:
   application:
     name: discounts
   datasource:
-    url: jdbc:mysql://${discounts-db:localhost}:3306/discounts-db
+    url: jdbc:mysql://${discounts-db:localhost}:3310/discounts-db
     username: root
     password: 12345
   jpa:

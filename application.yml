@@ -10,4 +10,4 @@ spring:
     sender:
       type: rabbit
   rabbitmq:
-    host: zipkin
+    host: rabbitmq
